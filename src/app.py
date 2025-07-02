@@ -63,9 +63,6 @@ def signup_for_activity(activity_name: str, email: str):
 
     # Get the specificy activity
     activity = activities[activity_name]
-    # Validate student email is provided
-    if not email:
-        raise HTTPException(status_code=400, detail="Email is required to sign up")
     # Prevent duplicate registration
     if email in activity["participants"]:
         raise HTTPException(status_code=400, detail="Student already registered for this activity")
